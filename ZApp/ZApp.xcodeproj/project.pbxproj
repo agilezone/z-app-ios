@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CC713821950727400E42E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC713811950727400E42E34 /* AppDelegate.swift */; };
-		4CC713841950727400E42E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC713831950727400E42E34 /* ViewController.swift */; };
+		4C2EC43C1959A569002A7CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC43B1959A569002A7CF7 /* ViewController.swift */; };
+		4C2EC43E1959A56F002A7CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC43D1959A56F002A7CF7 /* AppDelegate.swift */; };
 		4CC713871950727400E42E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC713851950727400E42E34 /* Main.storyboard */; };
 		4CC713891950727400E42E34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC713881950727400E42E34 /* Images.xcassets */; };
 		4CC713951950727400E42E34 /* ZAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC713941950727400E42E34 /* ZAppTests.swift */; };
@@ -25,10 +25,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C2EC43B1959A569002A7CF7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C2EC43D1959A56F002A7CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC7137C1950727400E42E34 /* ZApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC713801950727400E42E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CC713811950727400E42E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CC713831950727400E42E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4CC713861950727400E42E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CC713881950727400E42E34 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CC7138E1950727400E42E34 /* ZAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +54,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C2EC4361959A46A002A7CF7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				4C2EC43A1959A52C002A7CF7 /* ViewController */,
+				4C2EC4391959A520002A7CF7 /* Delegate */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		4C2EC4371959A472002A7CF7 /* res */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		4C2EC4381959A47A002A7CF7 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		4C2EC4391959A520002A7CF7 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4C2EC43D1959A56F002A7CF7 /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		4C2EC43A1959A52C002A7CF7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C2EC43B1959A569002A7CF7 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		4CC713731950727400E42E34 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +114,9 @@
 		4CC7137E1950727400E42E34 /* ZApp */ = {
 			isa = PBXGroup;
 			children = (
-				4CC713811950727400E42E34 /* AppDelegate.swift */,
-				4CC713831950727400E42E34 /* ViewController.swift */,
+				4C2EC4381959A47A002A7CF7 /* libs */,
+				4C2EC4371959A472002A7CF7 /* res */,
+				4C2EC4361959A46A002A7CF7 /* src */,
 				4CC713851950727400E42E34 /* Main.storyboard */,
 				4CC713881950727400E42E34 /* Images.xcassets */,
 				4CC7137F1950727400E42E34 /* Supporting Files */,
@@ -208,8 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CC713841950727400E42E34 /* ViewController.swift in Sources */,
-				4CC713821950727400E42E34 /* AppDelegate.swift in Sources */,
+				4C2EC43E1959A56F002A7CF7 /* AppDelegate.swift in Sources */,
+				4C2EC43C1959A569002A7CF7 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +443,7 @@
 				4CC7139A1950727400E42E34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CC7139B1950727400E42E34 /* Build configuration list for PBXNativeTarget "ZAppTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +452,7 @@
 				4CC7139D1950727400E42E34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
