@@ -13,9 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let atHome : Bool = true
+        var productURl: String = ""
+        if !atHome {
+            productURl = "http://192.168.0.32:3000/api/products?token=4f751e4e4f773a9611dd62f051d7a99cb1aa75a78dea79a7"
+        } else {
+            productURl = "http://192.168.0.12:3000/api/products?token=fbc33ec2976f2c70b36a989dc28041f942f89e1e9c16eb56"
+        }
+        
         
         let manager = AFHTTPRequestOperationManager();
-        manager.GET("http://192.168.0.32:3000/api/products?token=4f751e4e4f773a9611dd62f051d7a99cb1aa75a78dea79a7", parameters: nil, success: {
+        manager.GET(productURl, parameters: nil, success: {
             (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
             println("JSON: " + responseObject.description)
             
@@ -25,7 +33,13 @@ class ViewController: UIViewController {
                 let pages :AnyObject? = dict["pages"]
                 let per_page : AnyObject? = dict["per_page"]
                 
+                let productsArray = dict["products"] as NSArray
+                for product:AnyObject in productsArray {
+                    let available_on = product["available_on"]
+                    let description = product["description"]
+                }
                 
+                //
                 
             }
             
