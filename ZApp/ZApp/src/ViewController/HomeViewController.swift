@@ -10,11 +10,9 @@ import Foundation
 
 class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     var scrollView : UIScrollView = UIScrollView(frame: CGRectZero)
-    var splitMenu : SplitMenuWidget?
-    var productsStringList : String[] = ["Femme","Homme", "Enfants"]
     
     override func viewDidLoad()  {
-        let atHome : Bool = false
+        //let atHome : Bool = true
         var productURl: String = ""
         let widgetHeight : CGFloat = 200
         let widegtWidth : CGFloat = 320
@@ -23,7 +21,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         self.view.addSubview(scrollView)
         
         var sectionList : String[] = ["Soldes", "Collection", "LookBook", "Pictures"]
-        
+        /*
         if !atHome {
             productURl = "http://192.168.0.32:3000/api/products?token=4f751e4e4f773a9611dd62f051d7a99cb1aa75a78dea79a7"
         } else {
@@ -37,16 +35,29 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &jsonError) as NSDictionary
         
         var productsList : NSArray = jsonDict.objectForKey("products") as NSArray
+        */
+        
+        var error : NSError?
+        
+        var path = NSBundle.mainBundle().pathForResource("sampleData", ofType: "json")
+        var jsonData = NSData.dataWithContentsOfFile(path, options: nil, error: &error)
+        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+        
+        let productsList : NSArray = jsonDict.objectForKey("products") as NSArray
+        
         var proList = ZProduct[]()
         
         for product:AnyObject in productsList {
             var zProduct = ZProduct();
             let pro = product as NSDictionary
-            zProduct.available_on = pro.objectForKey("available_on") as String
-            zProduct.price = pro.objectForKey("price") as String
-            zProduct.shippingCategory = pro.objectForKey("shipping_category_id") as Int
-            zProduct.id = pro.objectForKey("id") as Int
+
+            zProduct.available_on = pro.objectForKey("available_on") as? String
+            zProduct.price = pro.objectForKey("price") as? Int
+            zProduct.shippingCategory = pro.objectForKey("shipping_category_id") as? Int
+            zProduct.id = pro.objectForKey("id") as? Int
+            zProduct.description = pro.objectForKey("description") as? String
             proList.append(zProduct);
+            
         }
         var i:CGFloat = 0
         for aString in sectionList {
@@ -57,15 +68,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         }
         scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
         
-        println("3rd element: \(productsStringList[2])" )
-        
-        //Init Menu
-        splitMenu = SplitMenuWidget(frame: CGRectZero)
-        splitMenu!.compile()
-        splitMenu!.tableDataSourceList = productsStringList
-        splitMenu!.update()
-        self.view.addSubview(splitMenu)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,10 +75,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     }
     
     func widgetIsClicked()  {
-        //Menu split
-        productsStringList.append("Pantalon")
-        productsStringList.append("fours")
-        splitMenu!.tableDataSourceList = productsStringList
-        splitMenu!.update()
+        
     }
 }

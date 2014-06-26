@@ -14,7 +14,7 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
     var tableView: UITableView?
     
     func compile() {
-        self.tableView = UITableView(frame: CGRectMake(0, 100, 320, 200))
+        self.tableView = UITableView(frame: CGRectMake(0, 0, 320, 200))
         self.tableView!.delegate = self
         self.tableView!.dataSource = self
         self.addSubview(tableView)

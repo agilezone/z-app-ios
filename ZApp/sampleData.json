@@ -1,0 +1,109 @@
+{
+    "count":2,
+    "total_count":2,
+    "current_page":1,
+    "per_page":25,
+    "pages":1,
+    "products":[
+                {
+                "id":2,
+                "name":"Test",
+                "description":"",
+                "price":null,
+                "display_price":"€0.00",
+                "available_on":"2014-06-23T00:00:00.000Z",
+                "slug":"test",
+                "meta_description":"",
+                "meta_keywords":"",
+                "shipping_category_id":1,
+                "taxon_ids":[
+                
+                ],
+                "total_on_hand":0,
+                "has_variants":false,
+                "master":{
+                "id":1,
+                "name":"Test",
+                "sku":"",
+                "price":null,
+                "weight":"0.0",
+                "height":null,
+                "width":null,
+                "depth":null,
+                "is_master":true,
+                "cost_price":null,
+                "slug":"test",
+                "description":"",
+                "track_inventory":true,
+                "display_price":"€0.00",
+                "options_text":"",
+                "in_stock":false,
+                "option_values":[
+                
+                ],
+                "images":[
+                
+                ]
+                },
+                "variants":[
+                
+                ],
+                "option_types":[
+                
+                ],
+                "product_properties":[
+                
+                ]
+                },
+                {
+                "id":3,
+                "name":"One Chemise",
+                "description":"",
+                "price":"25.0",
+                "display_price":"€25.00",
+                "available_on":"2014-06-23T00:00:00.000Z",
+                "slug":"one-chemise",
+                "meta_description":"",
+                "meta_keywords":"",
+                "shipping_category_id":2,
+                "taxon_ids":[
+                
+                ],
+                "total_on_hand":0,
+                "has_variants":false,
+                "master":{
+                "id":2,
+                "name":"One Chemise",
+                "sku":"",
+                "price":"25.0",
+                "weight":"0.0",
+                "height":null,
+                "width":null,
+                "depth":null,
+                "is_master":true,
+                "cost_price":null,
+                "slug":"one-chemise",
+                "description":"",
+                "track_inventory":true,
+                "display_price":"€25.00",
+                "options_text":"",
+                "in_stock":false,
+                "option_values":[
+                
+                ],
+                "images":[
+                
+                ]
+                },
+                "variants":[
+                
+                ],
+                "option_types":[
+                
+                ],
+                "product_properties":[
+                
+                ]
+                }
+                ]
+}

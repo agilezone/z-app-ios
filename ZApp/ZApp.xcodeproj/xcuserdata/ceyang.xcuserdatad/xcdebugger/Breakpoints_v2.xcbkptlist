@@ -25,14 +25,60 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ZApp/src/ViewController/ViewController.swift"
-            timestampString = "425365501.037037"
+            filePath = "ZApp/src/ViewController/HomeViewController.swift"
+            timestampString = "425510559.927268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZApp/src/ViewController/HomeViewController.swift"
+            timestampString = "425510559.927268"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZApp.HomeViewController.viewDidLoad (ZApp.HomeViewController)() -&gt; ()"
+                  moduleName = "ZApp"
+                  urlString = "file:///Users/ceyang/Dev/z-app/ZApp/ZApp/src/ViewController/HomeViewController.swift"
+                  timestampString = "425507339.480345"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "6279">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ZApp.HomeViewController.viewDidLoad (ZApp.HomeViewController)() -&gt; ()"
+                  moduleName = "ZApp"
+                  urlString = "file:///Users/ceyang/Dev/z-app/ZApp/ZApp/src/ViewController/HomeViewController.swift"
+                  timestampString = "425507339.480581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "6646">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,12 +10,12 @@ import Foundation
 
 
 class ZProduct {
-    var available_on: String = ""
-    var description: String = ""
-    var price: String = ""
+    var available_on: String?
+    var description: String?
+    var price:Int?
     var hasVariant : Bool = false
-    var id : Int = 0
-    var shippingCategory: Int = 0
+    var id : Int?
+    var shippingCategory: Int?
     init() {
         
     }
