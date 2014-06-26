@@ -19,12 +19,68 @@
 		4C2EC4591959A616002A7CF7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC44E1959A616002A7CF7 /* AFURLRequestSerialization.m */; };
 		4C2EC45A1959A616002A7CF7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC4501959A616002A7CF7 /* AFURLResponseSerialization.m */; };
 		4C2EC45B1959A616002A7CF7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC4521959A616002A7CF7 /* AFURLSessionManager.m */; };
+		4CC34A0B195AECA30019977D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC34A0A195AECA30019977D /* HomeViewController.swift */; };
+		4CC34A0E195AEE310019977D /* HomeBasicWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */; };
+		4CC34A19195AF11C0019977D /* CustomView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC34A18195AF11C0019977D /* CustomView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CC34A1F195AF11C0019977D /* CustomView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC34A14195AF11C0019977D /* CustomView.framework */; };
+		4CC34A26195AF11C0019977D /* CustomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC34A25195AF11C0019977D /* CustomViewTests.swift */; };
+		4CC34A29195AF11C0019977D /* CustomView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC34A14195AF11C0019977D /* CustomView.framework */; };
+		4CC34A2A195AF11C0019977D /* CustomView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC34A14195AF11C0019977D /* CustomView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4CC713871950727400E42E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC713851950727400E42E34 /* Main.storyboard */; };
 		4CC713891950727400E42E34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC713881950727400E42E34 /* Images.xcassets */; };
 		4CC713951950727400E42E34 /* ZAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC713941950727400E42E34 /* ZAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4CBE880E195C10EF00327D73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A20195AF11C0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A27195AF11C0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A2B195AF11C0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A34195AF11D0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A36195AF11D0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
+		4CC34A38195AF11E0019977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CC713741950727400E42E34 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CC34A13195AF11C0019977D;
+			remoteInfo = CustomView;
+		};
 		4CC7138F1950727400E42E34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CC713741950727400E42E34 /* Project object */;
@@ -33,6 +89,20 @@
 			remoteInfo = ZApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CC34A30195AF11C0019977D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4CC34A2A195AF11C0019977D /* CustomView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3ED4490F195A83D7002E4C0B /* ZAConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZAConstants.h; sourceTree = "<group>"; };
@@ -59,6 +129,14 @@
 		4C2EC4511959A616002A7CF7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		4C2EC4521959A616002A7CF7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		4C2EC4661959A9E8002A7CF7 /* ZApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CC34A0A195AECA30019977D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBasicWidget.swift; sourceTree = "<group>"; };
+		4CC34A14195AF11C0019977D /* CustomView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC34A17195AF11C0019977D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC34A18195AF11C0019977D /* CustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		4CC34A1E195AF11C0019977D /* CustomViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC34A24195AF11C0019977D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CC34A25195AF11C0019977D /* CustomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewTests.swift; sourceTree = "<group>"; };
 		4CC7137C1950727400E42E34 /* ZApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC713801950727400E42E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CC713861950727400E42E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,10 +147,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4CC34A10195AF11C0019977D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC34A1B195AF11C0019977D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC34A1F195AF11C0019977D /* CustomView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CC713791950727400E42E34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CC34A29195AF11C0019977D /* CustomView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +191,7 @@
 		4C2EC4361959A46A002A7CF7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4CC34A0C195AEDE90019977D /* View */,
 				3ED44910195A91F3002E4C0B /* Model */,
 				4C2EC4651959A9C6002A7CF7 /* Header */,
 				4C2EC43A1959A52C002A7CF7 /* ViewController */,
@@ -132,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				4C2EC43B1959A569002A7CF7 /* ViewController.swift */,
+				4CC34A0A195AECA30019977D /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -171,11 +267,55 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		4CC34A0C195AEDE90019977D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4CC34A15195AF11C0019977D /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				4CC34A18195AF11C0019977D /* CustomView.h */,
+				4CC34A16195AF11C0019977D /* Supporting Files */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		4CC34A16195AF11C0019977D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC34A17195AF11C0019977D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CC34A22195AF11C0019977D /* CustomViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CC34A25195AF11C0019977D /* CustomViewTests.swift */,
+				4CC34A23195AF11C0019977D /* Supporting Files */,
+			);
+			path = CustomViewTests;
+			sourceTree = "<group>";
+		};
+		4CC34A23195AF11C0019977D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CC34A24195AF11C0019977D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4CC713731950727400E42E34 = {
 			isa = PBXGroup;
 			children = (
 				4CC7137E1950727400E42E34 /* ZApp */,
 				4CC713911950727400E42E34 /* ZAppTests */,
+				4CC34A15195AF11C0019977D /* CustomView */,
+				4CC34A22195AF11C0019977D /* CustomViewTests */,
 				4CC7137D1950727400E42E34 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -185,6 +325,8 @@
 			children = (
 				4CC7137C1950727400E42E34 /* ZApp.app */,
 				4CC7138E1950727400E42E34 /* ZAppTests.xctest */,
+				4CC34A14195AF11C0019977D /* CustomView.framework */,
+				4CC34A1E195AF11C0019977D /* CustomViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,7 +371,58 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4CC34A11195AF11C0019977D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC34A19195AF11C0019977D /* CustomView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4CC34A13195AF11C0019977D /* CustomView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC34A2D195AF11C0019977D /* Build configuration list for PBXNativeTarget "CustomView" */;
+			buildPhases = (
+				4CC34A0F195AF11C0019977D /* Sources */,
+				4CC34A10195AF11C0019977D /* Frameworks */,
+				4CC34A11195AF11C0019977D /* Headers */,
+				4CC34A12195AF11C0019977D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomView;
+			productName = CustomView;
+			productReference = 4CC34A14195AF11C0019977D /* CustomView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4CC34A1D195AF11C0019977D /* CustomViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CC34A31195AF11C0019977D /* Build configuration list for PBXNativeTarget "CustomViewTests" */;
+			buildPhases = (
+				4CC34A1A195AF11C0019977D /* Sources */,
+				4CC34A1B195AF11C0019977D /* Frameworks */,
+				4CC34A1C195AF11C0019977D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4CC34A21195AF11C0019977D /* PBXTargetDependency */,
+				4CC34A35195AF11D0019977D /* PBXTargetDependency */,
+				4CC34A37195AF11D0019977D /* PBXTargetDependency */,
+				4CC34A39195AF11E0019977D /* PBXTargetDependency */,
+				4CBE880F195C10EF00327D73 /* PBXTargetDependency */,
+			);
+			name = CustomViewTests;
+			productName = CustomViewTests;
+			productReference = 4CC34A1E195AF11C0019977D /* CustomViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4CC7137B1950727400E42E34 /* ZApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CC713981950727400E42E34 /* Build configuration list for PBXNativeTarget "ZApp" */;
@@ -237,10 +430,13 @@
 				4CC713781950727400E42E34 /* Sources */,
 				4CC713791950727400E42E34 /* Frameworks */,
 				4CC7137A1950727400E42E34 /* Resources */,
+				4CC34A30195AF11C0019977D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4CC34A28195AF11C0019977D /* PBXTargetDependency */,
+				4CC34A2C195AF11C0019977D /* PBXTargetDependency */,
 			);
 			name = ZApp;
 			productName = ZApp;
@@ -274,6 +470,13 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = AgileZone;
 				TargetAttributes = {
+					4CC34A13195AF11C0019977D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					4CC34A1D195AF11C0019977D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 4CC34A13195AF11C0019977D;
+					};
 					4CC7137B1950727400E42E34 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -298,11 +501,27 @@
 			targets = (
 				4CC7137B1950727400E42E34 /* ZApp */,
 				4CC7138D1950727400E42E34 /* ZAppTests */,
+				4CC34A13195AF11C0019977D /* CustomView */,
+				4CC34A1D195AF11C0019977D /* CustomViewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4CC34A12195AF11C0019977D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC34A1C195AF11C0019977D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CC7137A1950727400E42E34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +541,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4CC34A0F195AF11C0019977D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4CC34A1A195AF11C0019977D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC34A26195AF11C0019977D /* CustomViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CC713781950727400E42E34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +563,7 @@
 				4C2EC4591959A616002A7CF7 /* AFURLRequestSerialization.m in Sources */,
 				4C2EC4581959A616002A7CF7 /* AFURLConnectionOperation.m in Sources */,
 				4C2EC4571959A616002A7CF7 /* AFSecurityPolicy.m in Sources */,
+				4CC34A0E195AEE310019977D /* HomeBasicWidget.swift in Sources */,
 				4C2EC4531959A616002A7CF7 /* AFHTTPRequestOperation.m in Sources */,
 				3ED44912195A921E002E4C0B /* ZProduct.swift in Sources */,
 				4C2EC45B1959A616002A7CF7 /* AFURLSessionManager.m in Sources */,
@@ -337,6 +572,7 @@
 				4C2EC4551959A616002A7CF7 /* AFHTTPSessionManager.m in Sources */,
 				4C2EC4541959A616002A7CF7 /* AFHTTPRequestOperationManager.m in Sources */,
 				4C2EC4561959A616002A7CF7 /* AFNetworkReachabilityManager.m in Sources */,
+				4CC34A0B195AECA30019977D /* HomeViewController.swift in Sources */,
 				4C2EC43C1959A569002A7CF7 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +588,41 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4CBE880F195C10EF00327D73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CBE880E195C10EF00327D73 /* PBXContainerItemProxy */;
+		};
+		4CC34A21195AF11C0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A20195AF11C0019977D /* PBXContainerItemProxy */;
+		};
+		4CC34A28195AF11C0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A27195AF11C0019977D /* PBXContainerItemProxy */;
+		};
+		4CC34A2C195AF11C0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A2B195AF11C0019977D /* PBXContainerItemProxy */;
+		};
+		4CC34A35195AF11D0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A34195AF11D0019977D /* PBXContainerItemProxy */;
+		};
+		4CC34A37195AF11D0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A36195AF11D0019977D /* PBXContainerItemProxy */;
+		};
+		4CC34A39195AF11E0019977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CC34A13195AF11C0019977D /* CustomView */;
+			targetProxy = 4CC34A38195AF11E0019977D /* PBXContainerItemProxy */;
+		};
 		4CC713901950727400E42E34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4CC7137B1950727400E42E34 /* ZApp */;
@@ -371,6 +642,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4CC34A2E195AF11C0019977D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4CC34A2F195AF11C0019977D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CustomView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4CC34A32195AF11C0019977D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4CC34A33195AF11C0019977D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		4CC713961950727400E42E34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -518,6 +863,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4CC34A2D195AF11C0019977D /* Build configuration list for PBXNativeTarget "CustomView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC34A2E195AF11C0019977D /* Debug */,
+				4CC34A2F195AF11C0019977D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CC34A31195AF11C0019977D /* Build configuration list for PBXNativeTarget "CustomViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CC34A32195AF11C0019977D /* Debug */,
+				4CC34A33195AF11C0019977D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4CC713771950727400E42E34 /* Build configuration list for PBXProject "ZApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
