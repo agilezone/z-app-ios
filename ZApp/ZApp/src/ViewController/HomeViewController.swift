@@ -10,6 +10,8 @@ import Foundation
 
 class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     var scrollView : UIScrollView = UIScrollView(frame: CGRectZero)
+    var splitMenu : SplitMenuWidget?
+    var productsStringList : String[] = ["Femme","Homme", "Enfants"]
     
     override func viewDidLoad()  {
         let atHome : Bool = false
@@ -49,10 +51,20 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         var i:CGFloat = 0
         for aString in sectionList {
             var aElement : HomeBasicWidget = HomeBasicWidget(frame: CGRectMake(0, i * widgetHeight, widegtWidth, widgetHeight))
+            aElement.clickedDelegate = self
             scrollView.addSubview(aElement)
             i++;
         }
         scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
+        
+        println("3rd element: \(productsStringList[2])" )
+        
+        //Init Menu
+        splitMenu = SplitMenuWidget(frame: CGRectZero)
+        splitMenu!.compile()
+        splitMenu!.tableDataSourceList = productsStringList
+        splitMenu!.update()
+        self.view.addSubview(splitMenu)
         
     }
     
@@ -61,6 +73,10 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     }
     
     func widgetIsClicked()  {
-        
+        //Menu split
+        productsStringList.append("Pantalon")
+        productsStringList.append("fours")
+        splitMenu!.tableDataSourceList = productsStringList
+        splitMenu!.update()
     }
 }

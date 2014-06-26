@@ -15,9 +15,9 @@ protocol WidgetIsClickedProtocol {
 
 class HomeBasicWidget : UIView {
     
-    
     var backgroundImageView : UIImageView = UIImageView()
     var clickedDelegate: WidgetIsClickedProtocol?
+    
     
     init(frame: CGRect)  {
         super.init(frame: frame)
@@ -30,8 +30,6 @@ class HomeBasicWidget : UIView {
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTouch")
         self.addGestureRecognizer(tapGesture)
         backgroundImageView.sd_setImageWithURL(NSURL(string: "https://i1.ytimg.com/vi/0xQ3y902DEQ/maxresdefault.jpg"))
-        
-        
 
     }
     
