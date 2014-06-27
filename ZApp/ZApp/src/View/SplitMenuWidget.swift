@@ -19,16 +19,17 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView!.dataSource = self
         self.addSubview(tableView)
         
+        tableView!.layer.borderColor = UIColor.greenColor().CGColor
+        tableView!.layer.borderWidth = 2
         self.tableView!.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     func update() {
-        println("3rd element: \(tableDataSourceList![2])" )
+        self.tableView!.frame = CGRectMake(0, 0, 320, CGFloat(tableDataSourceList!.count) * 40)
         self.tableView!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        println("nums: \(tableDataSourceList!.count)" )
         return tableDataSourceList!.count
     }
     
@@ -41,6 +42,8 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
             cell = SplitMenuCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellId)
         }
         
+        println(tableDataSourceList![indexPath.row])
+        
         cell!.labelString = tableDataSourceList![indexPath.row]
         cell!.update()
         
@@ -49,6 +52,9 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         println("selected")
+        
+        
+        self.update()
     }
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {

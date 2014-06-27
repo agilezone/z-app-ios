@@ -10,17 +10,22 @@ import Foundation
 
 class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     var scrollView : UIScrollView = UIScrollView(frame: CGRectZero)
+    var homeWidgetList : Array<HomeBasicWidget> = HomeBasicWidget[]()
+    let widgetHeight : CGFloat = 200
+    let widegtWidth : CGFloat = 320
+    var sectionList : String[] = ["Soldes", "Collection", "LookBook", "Pictures"]
+    var productsStringList : String[] = ["Femme","Homme", "Enfants"]
+    var splitMenu : SplitMenuWidget?
     
     override func viewDidLoad()  {
         //let atHome : Bool = true
         var productURl: String = ""
-        let widgetHeight : CGFloat = 200
-        let widegtWidth : CGFloat = 320
+        let topBarHeight : CGFloat = 60
+        let tabBarHeight : CGFloat = 40
         
-        scrollView.frame = self.view.frame
+        scrollView.frame = CGRectMake(0, topBarHeight, widegtWidth, self.view.frame.size.height - topBarHeight - tabBarHeight)
         self.view.addSubview(scrollView)
         
-        var sectionList : String[] = ["Soldes", "Collection", "LookBook", "Pictures"]
         /*
         if !atHome {
             productURl = "http://192.168.0.32:3000/api/products?token=4f751e4e4f773a9611dd62f051d7a99cb1aa75a78dea79a7"
@@ -60,9 +65,21 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
             
         }
         var i:CGFloat = 0
+        
+        //Init Menu
+        //splitMenu = SplitMenuWidget(frame: CGRectMake(0, widgetHeight, 320, CGFloat(productsStringList.count) * 40))
+        splitMenu = SplitMenuWidget(frame: CGRectZero)
+        splitMenu!.compile()
+        splitMenu!.tableDataSourceList = productsStringList
+        splitMenu!.update()
+        self.scrollView.addSubview(splitMenu)
+        //Initailly hidden
+        splitMenu!.hidden = true
+        
         for aString in sectionList {
             var aElement : HomeBasicWidget = HomeBasicWidget(frame: CGRectMake(0, i * widgetHeight, widegtWidth, widgetHeight))
             aElement.clickedDelegate = self
+            homeWidgetList.append(aElement)
             scrollView.addSubview(aElement)
             i++;
         }
@@ -74,7 +91,48 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         
     }
     
-    func widgetIsClicked()  {
-        
+    func widgetIsClicked(widget : HomeBasicWidget)   {
+        var shouldOpenWidget : Bool = false;
+        var shouldCloseWidget : Bool = false;
+        for homeWidgetElement : HomeBasicWidget in homeWidgetList {
+            if shouldOpenWidget {
+                var newFrame = homeWidgetElement.frame
+                newFrame.origin.y += CGFloat(productsStringList.count * 40)
+                UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
+            }
+            
+            if shouldCloseWidget {
+                var newFrame = homeWidgetElement.frame
+                newFrame.origin.y -= CGFloat(productsStringList.count * 40)
+                UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
+            }
+            
+            if splitMenu!.hidden && widget.isEqual(homeWidgetElement){
+                //change content size
+                var menuHeight = CGFloat(productsStringList.count * 40)
+                
+                scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight + CGFloat(menuHeight))
+                
+                scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
+                splitMenu!.hidden = false
+                splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, menuHeight)
+                splitMenu!.update()
+                shouldCloseWidget = false
+                shouldOpenWidget = true
+            }
+            if !splitMenu!.hidden && widget.isEqual(homeWidgetElement) {
+                var menuHeight = CGFloat(productsStringList.count * 40)
+                
+                scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight - CGFloat(menuHeight))
+                
+                scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
+                splitMenu!.hidden = false
+                splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, 0)
+                splitMenu!.update()
+                shouldCloseWidget = true
+                shouldOpenWidget = false
+            }
+            
+        }
     }
 }

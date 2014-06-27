@@ -10,34 +10,29 @@ import Foundation
 import UIKit
 
 protocol WidgetIsClickedProtocol {
-    func widgetIsClicked()
+    func widgetIsClicked(widget : HomeBasicWidget)
 }
 
 class HomeBasicWidget : UIView {
     
     var backgroundImageView : UIImageView = UIImageView()
     var clickedDelegate: WidgetIsClickedProtocol?
-    var splitMenu : SplitMenuWidget?
-    var productsStringList : String[] = ["Femme","Homme", "Enfants"]
+    let widgetHeight : CGFloat = 200
     
     init(frame: CGRect)  {
         super.init(frame: frame)
         self.backgroundImageView.frame = self.bounds
         self.addSubview(self.backgroundImageView)
         compile();
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.redColor().CGColor
+        
     }
     
     func compile () {
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTouch")
         self.addGestureRecognizer(tapGesture)
         backgroundImageView.sd_setImageWithURL(NSURL(string: "https://i1.ytimg.com/vi/0xQ3y902DEQ/maxresdefault.jpg"))
-        
-        //Init Menu
-        splitMenu = SplitMenuWidget(frame: CGRectMake(0, 50, 320, 100))
-        splitMenu!.compile()
-        splitMenu!.tableDataSourceList = productsStringList
-        splitMenu!.update()
-        self.addSubview(splitMenu)
     }
     
     func update() {
@@ -46,13 +41,9 @@ class HomeBasicWidget : UIView {
     
     func viewDidTouch () {
         println("Did Touch")
-        clickedDelegate?.widgetIsClicked()
-        //Menu split
         
-        productsStringList.append("Pantalon")
-        productsStringList.append("fours")
-        splitMenu!.tableDataSourceList = productsStringList
-        splitMenu!.update()
+        //Menu split, expand split menu
+        clickedDelegate?.widgetIsClicked(self)
     }
     
 }
