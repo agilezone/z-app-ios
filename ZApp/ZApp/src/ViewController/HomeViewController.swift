@@ -95,44 +95,43 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         var shouldOpenWidget : Bool = false;
         var shouldCloseWidget : Bool = false;
         for homeWidgetElement : HomeBasicWidget in homeWidgetList {
-            if shouldOpenWidget {
-                var newFrame = homeWidgetElement.frame
-                newFrame.origin.y += CGFloat(productsStringList.count * 40)
-                UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
-            }
             
-            if shouldCloseWidget {
-                var newFrame = homeWidgetElement.frame
-                newFrame.origin.y -= CGFloat(productsStringList.count * 40)
-                UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
-            }
-            
-            if splitMenu!.hidden && widget.isEqual(homeWidgetElement){
+            if widget.isEqual(homeWidgetElement){
                 //change content size
                 var menuHeight = CGFloat(productsStringList.count * 40)
+                if splitMenu!.hidden {
+                    scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight + CGFloat(menuHeight))
+                    
+                    scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
+                    splitMenu!.hidden = false
+                    splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, menuHeight)
+                    splitMenu!.update()
+                    shouldCloseWidget = false
+                    shouldOpenWidget = true
+                } else {
+                    scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight - CGFloat(menuHeight))
+                    
+                    //scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
+                    //splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, 0)
+                    //splitMenu!.cleanDataSourceList()
+                    splitMenu!.update()
+                    shouldCloseWidget = true
+                    shouldOpenWidget = false
+                }
+            } else {
+                if shouldOpenWidget {
+                    var newFrame = homeWidgetElement.frame
+                    newFrame.origin.y += CGFloat(productsStringList.count * 40)
+                    UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
+                }
                 
-                scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight + CGFloat(menuHeight))
-                
-                scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
-                splitMenu!.hidden = false
-                splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, menuHeight)
-                splitMenu!.update()
-                shouldCloseWidget = false
-                shouldOpenWidget = true
+                if shouldCloseWidget {
+                    var newFrame = homeWidgetElement.frame
+                    newFrame.origin.y -= CGFloat(productsStringList.count * 40)
+                    UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame}, completion: {(value: Bool) in
+                        self.splitMenu!.hidden = true})
+                }
             }
-            if !splitMenu!.hidden && widget.isEqual(homeWidgetElement) {
-                var menuHeight = CGFloat(productsStringList.count * 40)
-                
-                scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight - CGFloat(menuHeight))
-                
-                scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
-                splitMenu!.hidden = false
-                splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, 0)
-                splitMenu!.update()
-                shouldCloseWidget = true
-                shouldOpenWidget = false
-            }
-            
         }
     }
 }

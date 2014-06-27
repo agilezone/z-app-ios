@@ -29,6 +29,10 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
+    func cleanDataSourceList () {
+        tableDataSourceList = String[]()
+    }
+    
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return tableDataSourceList!.count
     }
