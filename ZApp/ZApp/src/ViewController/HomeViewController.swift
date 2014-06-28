@@ -8,8 +8,8 @@
 
 import Foundation
 
-class HomeViewController : UIViewController, WidgetIsClickedProtocol {
-    var scrollView : UIScrollView = UIScrollView(frame: CGRectZero)
+class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableViewDataSource, UITableViewDelegate {
+    var homeTable: UITableView?
     var homeWidgetList : Array<HomeBasicWidget> = HomeBasicWidget[]()
     let widgetHeight : CGFloat = 200
     let widegtWidth : CGFloat = 320
@@ -23,8 +23,8 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         let topBarHeight : CGFloat = 60
         let tabBarHeight : CGFloat = 40
         
-        scrollView.frame = CGRectMake(0, topBarHeight, widegtWidth, self.view.frame.size.height - topBarHeight - tabBarHeight)
-        self.view.addSubview(scrollView)
+        homeTable = UITableView(frame: CGRectMake(0, topBarHeight, widegtWidth, self.view.frame.size.height - topBarHeight - tabBarHeight))
+        self.view.addSubview(homeTable)
         
         /*
         if !atHome {
@@ -72,7 +72,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
         splitMenu!.compile()
         splitMenu!.tableDataSourceList = productsStringList
         splitMenu!.update()
-        self.scrollView.addSubview(splitMenu)
+        //self.scrollView.addSubview(splitMenu)
         //Initailly hidden
         splitMenu!.hidden = true
         
@@ -80,10 +80,10 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
             var aElement : HomeBasicWidget = HomeBasicWidget(frame: CGRectMake(0, i * widgetHeight, widegtWidth, widgetHeight))
             aElement.clickedDelegate = self
             homeWidgetList.append(aElement)
-            scrollView.addSubview(aElement)
+            //scrollView.addSubview(aElement)
             i++;
         }
-        scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
+        //scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
         
     }
     
@@ -92,6 +92,8 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
     }
     
     func widgetIsClicked(widget : HomeBasicWidget)   {
+        /*
+        
         var shouldOpenWidget : Bool = false;
         var shouldCloseWidget : Bool = false;
         for homeWidgetElement : HomeBasicWidget in homeWidgetList {
@@ -133,5 +135,14 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol {
                 }
             }
         }
+        */
+    }
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        return sectionList.count
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        
     }
 }
