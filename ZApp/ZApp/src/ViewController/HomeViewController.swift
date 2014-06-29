@@ -13,9 +13,9 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     var homeWidgetList : Array<HomeBasicWidget> = HomeBasicWidget[]()
     let widgetHeight : CGFloat = 200
     let widegtWidth : CGFloat = 320
-    var sectionList : String[] = ["Soldes", "Collection", "LookBook", "Pictures"]
-    var productsStringList : String[] = ["Femme","Homme", "Enfants"]
+    var sectionList : HomeComponent[]?
     var splitMenu : SplitMenuWidget?
+    var homeSectionList : HomeComponent[] = HomeComponent[]()
     
     override func viewDidLoad()  {
         //let atHome : Bool = true
@@ -24,7 +24,13 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
         let tabBarHeight : CGFloat = 40
         
         homeTable = UITableView(frame: CGRectMake(0, topBarHeight, widegtWidth, self.view.frame.size.height - topBarHeight - tabBarHeight))
+        homeTable!.dataSource = self
+        homeTable!.delegate = self
         self.view.addSubview(homeTable)
+        
+        initSectionList()
+        homeTable!.reloadData()
+        
         
         /*
         if !atHome {
@@ -66,6 +72,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
         }
         var i:CGFloat = 0
         
+        /*
         //Init Menu
         //splitMenu = SplitMenuWidget(frame: CGRectMake(0, widgetHeight, 320, CGFloat(productsStringList.count) * 40))
         splitMenu = SplitMenuWidget(frame: CGRectZero)
@@ -84,7 +91,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
             i++;
         }
         //scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
-        
+        */
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,57 +99,124 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     }
     
     func widgetIsClicked(widget : HomeBasicWidget)   {
-        /*
         
-        var shouldOpenWidget : Bool = false;
-        var shouldCloseWidget : Bool = false;
-        for homeWidgetElement : HomeBasicWidget in homeWidgetList {
-            
-            if widget.isEqual(homeWidgetElement){
-                //change content size
-                var menuHeight = CGFloat(productsStringList.count * 40)
-                if splitMenu!.hidden {
-                    scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight + CGFloat(menuHeight))
-                    
-                    scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
-                    splitMenu!.hidden = false
-                    splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, menuHeight)
-                    splitMenu!.update()
-                    shouldCloseWidget = false
-                    shouldOpenWidget = true
-                } else {
-                    scrollView.contentSize = CGSizeMake(widegtWidth, CGFloat(sectionList.count) * widgetHeight - CGFloat(menuHeight))
-                    
-                    //scrollView.setContentOffset(CGPointMake(0, widget.frame.origin.y), animated: true)
-                    //splitMenu!.frame = CGRectMake(0, widget.frame.origin.y + widget.frame.size.height, widegtWidth, 0)
-                    //splitMenu!.cleanDataSourceList()
-                    splitMenu!.update()
-                    shouldCloseWidget = true
-                    shouldOpenWidget = false
-                }
-            } else {
-                if shouldOpenWidget {
-                    var newFrame = homeWidgetElement.frame
-                    newFrame.origin.y += CGFloat(productsStringList.count * 40)
-                    UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame})
-                }
-                
-                if shouldCloseWidget {
-                    var newFrame = homeWidgetElement.frame
-                    newFrame.origin.y -= CGFloat(productsStringList.count * 40)
-                    UIView.animateWithDuration(0.5, animations: {homeWidgetElement.frame = newFrame}, completion: {(value: Bool) in
-                        self.splitMenu!.hidden = true})
-                }
-            }
-        }
-        */
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return sectionList.count
+        println("homeSectionCount: \(homeSectionList.count)")
+        return homeSectionList.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) ->UITableViewCell! {
+        var cell : UITableViewCell?
+        var homeSection = self.homeSectionList[indexPath.row]
+        
+        switch homeSection.componentType! {
+        case .homeSection:
+            if cell == nil {
+                cell = HomeBasicWidget(style: UITableViewCellStyle.Default, reuseIdentifier: "homeSectionCell")
+                (cell as HomeBasicWidget).compile()
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("homeSectionCell") as HomeBasicWidget
+                (cell as HomeBasicWidget).update()
+            }
+            break
+        case .firstLevelMenu:
+            if cell == nil {
+                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "firstLevelMenuCell")
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("firstLevelMenuCell") as? UITableViewCell
+            }
+            cell!.text = homeSection.sectionName
+            break
+        case .secondLevelMenu:
+            if cell == nil {
+                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "secondLevelMenuCell")
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("secondLevelMenuCell") as? UITableViewCell
+            }
+            cell!.text = homeSection.sectionName
+            break
+        default:
+            break
+        }
+
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        var homeSection = self.homeSectionList[indexPath.row]
+        switch homeSection.componentType! {
+        case .homeSection:
+            return 200
+        case .firstLevelMenu:
+            return 64
+        case .secondLevelMenu:
+            return 40
+        default:
+            return 44
+        }
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
+        var homeSection = self.homeSectionList[indexPath.row]
+        
+        switch homeSection.componentType! {
+        case .homeSection:
+            print("is I")
+        case .firstLevelMenu:
+            
+            
+            for subSection in homeSection.subSection! {
+                var i = indexPath.row + 1
+                homeSectionList.insert(subSection, atIndex: i)
+                i++
+                var tableCell : UITableViewCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0))
+            }
+            break;
+        default:
+            break;
+        }
+        self.homeTable!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        //self.homeTable!.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+    }
+    
+    func initSectionList() {
+        var soldSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "SOLDES")
+        
+        //Sub Section
+        var femmeSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: "FEMME")
+        
+        var trfSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: "TRF")
+        
+        var hommeSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: "HOMME")
+        
+        var enfantsSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: "ENFANTS")
+
+        //Second Section
+        var femmeSecondMenuList : String[] = ["Manteaux", "Veste", "Robes", "Chemises", "Pantalons", "Jeans", "Jupes", "Maille", "T-shirts", "Chaussures", "Sacs", "Accessoires", "Dernières tailles"]
+        var femmeComponentList : HomeComponent[] = HomeComponent[]()
+        for menuTitle in femmeSecondMenuList {
+            var aFemmeComponent: HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.secondLevelMenu, sectionName: menuTitle)
+            femmeComponentList.append(aFemmeComponent)
+        }
+        femmeSection.subSection = femmeComponentList
+        
+        var hommeSecondMenuList : String[] = ["Blousons", "Vestes", "Costumes", "Pantalons", "Jeans", "Bermudas", "Chemises", "T-Shirts", "Sweat-shirts", "Maille", "Chaussures", "Sacs", "Accessoirs", "Maillots de bain", "Dernière tailles"]
+        var hommeComponentList : HomeComponent[] = HomeComponent[]()
+        for menuTitle in hommeSecondMenuList {
+            var aHommeComponent: HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.secondLevelMenu, sectionName: menuTitle)
+            hommeComponentList.append(aHommeComponent)
+        }
+        hommeSection.subSection = hommeComponentList
+        
+        homeSectionList.append(soldSection)
+        homeSectionList.append(femmeSection)
+        homeSectionList.append(trfSection)
+        homeSectionList.append(hommeSection)
+        homeSectionList.append(enfantsSection)
         
     }
 }

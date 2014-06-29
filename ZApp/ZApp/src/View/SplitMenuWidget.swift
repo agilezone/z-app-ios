@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SplitMenuWidget: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
+class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var tableDataSourceList : String[]?
     var tableView: UITableView?

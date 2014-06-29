@@ -13,26 +13,19 @@ protocol WidgetIsClickedProtocol {
     func widgetIsClicked(widget : HomeBasicWidget)
 }
 
-class HomeBasicWidget : UIView {
+class HomeBasicWidget : UITableViewCell {
     
-    var backgroundImageView : UIImageView = UIImageView()
+    var backgroundImageView : UIImageView?
     var clickedDelegate: WidgetIsClickedProtocol?
     let widgetHeight : CGFloat = 200
-    
-    init(frame: CGRect)  {
-        super.init(frame: frame)
-        self.backgroundImageView.frame = self.bounds
-        self.addSubview(self.backgroundImageView)
-        compile();
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.redColor().CGColor
-        
-    }
-    
+
     func compile () {
+        self.backgroundImageView = UIImageView(frame: CGRectMake(0, 0, 320, 200))
+        self.addSubview(self.backgroundImageView)
+
         let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTouch")
         self.addGestureRecognizer(tapGesture)
-        backgroundImageView.sd_setImageWithURL(NSURL(string: "https://i1.ytimg.com/vi/0xQ3y902DEQ/maxresdefault.jpg"))
+        backgroundImageView!.sd_setImageWithURL(NSURL(string: "https://i1.ytimg.com/vi/0xQ3y902DEQ/maxresdefault.jpg"))
     }
     
     func update() {
