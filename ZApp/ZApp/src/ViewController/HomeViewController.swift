@@ -161,26 +161,24 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         var homeSection = self.homeSectionList[indexPath.row]
-        
+        var insertedIndexPaths : NSIndexPath[] = NSIndexPath[]()
         switch homeSection.componentType! {
         case .homeSection:
             print("is I")
         case .firstLevelMenu:
-            
-            
+            var i = indexPath.row + 1
             for subSection in homeSection.subSection! {
-                var i = indexPath.row + 1
                 homeSectionList.insert(subSection, atIndex: i)
+                insertedIndexPaths += NSIndexPath(forRow: i, inSection: 0)
                 i++
-                var tableCell : UITableViewCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0))
             }
             break;
         default:
             break;
         }
-        self.homeTable!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        //self.homeTable!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         
-        //self.homeTable!.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        self.homeTable!.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
     }
     
     func initSectionList() {
