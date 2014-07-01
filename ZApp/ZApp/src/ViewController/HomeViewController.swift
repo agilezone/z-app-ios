@@ -163,6 +163,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         var homeSection = self.homeSectionList[indexPath.row]
         var insertedIndexPaths : NSIndexPath[] = NSIndexPath[]()
         var deleteIndexPaths : NSIndexPath[] = NSIndexPath[]()
