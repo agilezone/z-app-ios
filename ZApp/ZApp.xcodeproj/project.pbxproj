@@ -10,6 +10,8 @@
 		3E3DA766195C911B0061D401 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E3DA765195C911B0061D401 /* sampleData.json */; };
 		3EB3EBDD19600EA10026720B /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3EBDC19600EA10026720B /* HomeComponent.swift */; };
 		3ED44912195A921E002E4C0B /* ZProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED44911195A921E002E4C0B /* ZProduct.swift */; };
+		4C09D31E1962DF560047AB32 /* FirstLevelMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */; };
+		4C09D3201962E7750047AB32 /* SecondLevelMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09D31F1962E7750047AB32 /* SecondLevelMenuCell.swift */; };
 		4C2EC43C1959A569002A7CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC43B1959A569002A7CF7 /* ViewController.swift */; };
 		4C2EC43E1959A56F002A7CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC43D1959A56F002A7CF7 /* AppDelegate.swift */; };
 		4C2EC4531959A616002A7CF7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EC4411959A616002A7CF7 /* AFHTTPRequestOperation.m */; };
@@ -131,6 +133,8 @@
 		3EB3EBDC19600EA10026720B /* HomeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
 		3ED4490F195A83D7002E4C0B /* ZAConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZAConstants.h; sourceTree = "<group>"; };
 		3ED44911195A921E002E4C0B /* ZProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZProduct.swift; sourceTree = "<group>"; };
+		4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLevelMenuCell.swift; sourceTree = "<group>"; };
+		4C09D31F1962E7750047AB32 /* SecondLevelMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondLevelMenuCell.swift; sourceTree = "<group>"; };
 		4C2EC43B1959A569002A7CF7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C2EC43D1959A56F002A7CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C2EC4401959A616002A7CF7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -191,7 +195,7 @@
 		4C5023C0195C695F00D3EDBB /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		4C5023D4195C6B2800D3EDBB /* SplitMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitMenuCell.swift; sourceTree = "<group>"; };
 		4CC34A0A195AECA30019977D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBasicWidget.swift; sourceTree = "<group>"; };
+		4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeBasicWidget.swift; path = ../View/HomeBasicWidget.swift; sourceTree = "<group>"; };
 		4CC34A14195AF11C0019977D /* CustomView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC34A17195AF11C0019977D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CC34A18195AF11C0019977D /* CustomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
@@ -377,7 +381,10 @@
 		4C5023D2195C6AFF00D3EDBB /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */,
 				4C5023D4195C6B2800D3EDBB /* SplitMenuCell.swift */,
+				4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */,
+				4C09D31F1962E7750047AB32 /* SecondLevelMenuCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -386,7 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				4C34FEF6195C688C0016F212 /* SplitMenuWidget.swift */,
-				4CC34A0D195AEE310019977D /* HomeBasicWidget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -685,6 +691,7 @@
 				4C5023D0195C695F00D3EDBB /* UIView+WebCacheOperation.m in Sources */,
 				4C2EC4571959A616002A7CF7 /* AFSecurityPolicy.m in Sources */,
 				4CC34A0E195AEE310019977D /* HomeBasicWidget.swift in Sources */,
+				4C09D31E1962DF560047AB32 /* FirstLevelMenuCell.swift in Sources */,
 				4C5023CC195C695F00D3EDBB /* UIImage+MultiFormat.m in Sources */,
 				4C5023CD195C695F00D3EDBB /* UIImage+WebP.m in Sources */,
 				4C2EC4531959A616002A7CF7 /* AFHTTPRequestOperation.m in Sources */,
@@ -698,6 +705,7 @@
 				4C2EC4551959A616002A7CF7 /* AFHTTPSessionManager.m in Sources */,
 				4C2EC4541959A616002A7CF7 /* AFHTTPRequestOperationManager.m in Sources */,
 				4C5023C2195C695F00D3EDBB /* NSData+ImageContentType.m in Sources */,
+				4C09D3201962E7750047AB32 /* SecondLevelMenuCell.swift in Sources */,
 				4C34FEFA195C68930016F212 /* CartViewController.swift in Sources */,
 				4C2EC4561959A616002A7CF7 /* AFNetworkReachabilityManager.m in Sources */,
 				4C5023C8195C695F00D3EDBB /* SDWebImageManager.m in Sources */,

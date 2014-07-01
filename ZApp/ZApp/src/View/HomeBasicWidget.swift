@@ -16,27 +16,20 @@ protocol WidgetIsClickedProtocol {
 class HomeBasicWidget : UITableViewCell {
     
     var backgroundImageView : UIImageView?
-    var clickedDelegate: WidgetIsClickedProtocol?
     let widgetHeight : CGFloat = 200
+    var homeComponent : HomeComponent?
 
     func compile () {
-        self.backgroundImageView = UIImageView(frame: CGRectMake(0, 0, 320, 200))
+        self.backgroundImageView = UIImageView(frame: CGRectMake(0, 0, 320, widgetHeight))
         self.addSubview(self.backgroundImageView)
 
-        let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTouch")
-        self.addGestureRecognizer(tapGesture)
+        //let tapGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "viewDidTouch")
+        //self.addGestureRecognizer(tapGesture)
         backgroundImageView!.sd_setImageWithURL(NSURL(string: "https://i1.ytimg.com/vi/0xQ3y902DEQ/maxresdefault.jpg"))
     }
     
     func update() {
         
-    }
-    
-    func viewDidTouch () {
-        println("Did Touch")
-        
-        //Menu split, expand split menu
-        clickedDelegate?.widgetIsClicked(self)
     }
     
 }

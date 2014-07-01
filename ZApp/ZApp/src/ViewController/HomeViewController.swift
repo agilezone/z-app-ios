@@ -30,7 +30,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
         
         initSectionList()
         homeTable!.reloadData()
-        
+        homeTable!.separatorStyle = UITableViewCellSeparatorStyle.None
         
         /*
         if !atHome {
@@ -110,7 +110,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) ->UITableViewCell! {
         var cell : UITableViewCell?
         var homeSection = self.homeSectionList[indexPath.row]
-        
         switch homeSection.componentType! {
         case .homeSection:
             if cell == nil {
@@ -120,27 +119,31 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
                 cell = tableView.dequeueReusableCellWithIdentifier("homeSectionCell") as HomeBasicWidget
                 (cell as HomeBasicWidget).update()
             }
+            (cell as HomeBasicWidget).homeComponent = (homeSection as HomeComponent)
             break
         case .firstLevelMenu:
             if cell == nil {
-                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "firstLevelMenuCell")
+                cell = FirstLevelMenuCell(style: UITableViewCellStyle.Default, reuseIdentifier: "firstLevelMenuCell")
             } else {
-                cell = tableView.dequeueReusableCellWithIdentifier("firstLevelMenuCell") as? UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("firstLevelMenuCell") as? FirstLevelMenuCell
             }
+            (cell as FirstLevelMenuCell).homeComponent = (homeSection as HomeComponent)
             cell!.text = homeSection.sectionName
             break
         case .secondLevelMenu:
             if cell == nil {
-                cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "secondLevelMenuCell")
+                cell = SecondLevelMenuCell(style: UITableViewCellStyle.Default, reuseIdentifier: "secondLevelMenuCell")
             } else {
-                cell = tableView.dequeueReusableCellWithIdentifier("secondLevelMenuCell") as? UITableViewCell
+                cell = tableView.dequeueReusableCellWithIdentifier("secondLevelMenuCell") as? SecondLevelMenuCell
             }
+            (cell as SecondLevelMenuCell).homeComponent = (homeSection as HomeComponent)
             cell!.text = homeSection.sectionName
             break
         default:
             break
         }
-
+        
+        cell!.selectionStyle = UITableViewCellSelectionStyle.None
         
         return cell
     }
@@ -162,27 +165,108 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         var homeSection = self.homeSectionList[indexPath.row]
         var insertedIndexPaths : NSIndexPath[] = NSIndexPath[]()
+        var deleteIndexPaths : NSIndexPath[] = NSIndexPath[]()
+        var shouldOpen : Bool = false
         switch homeSection.componentType! {
         case .homeSection:
-            print("is I")
+            var i = indexPath.row + 1
+            var newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+            // Get next cell
+            var nextSection = homeSectionList[i]
+            switch nextSection.componentType! {
+            case .homeSection:
+                shouldOpen = true
+                if homeSection.subSection {
+                    for subSection in homeSection.subSection! {
+                        homeSectionList.insert(subSection, atIndex: i)
+                        insertedIndexPaths += newIndexPath
+                        i++
+                        newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                    }
+                }
+                break
+            case .firstLevelMenu:
+                shouldOpen = false
+                var j : Int = i
+                while nextSection.componentType! == HomeComponent.kComponentType.firstLevelMenu || nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
+                    print(newIndexPath)
+                    deleteIndexPaths += newIndexPath
+                    homeSectionList.removeAtIndex(j)
+                    print(nextSection.sectionName!)
+                    nextSection = homeSectionList[j]
+                    i++
+                    newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                }
+                print(deleteIndexPaths)
+                break
+            case .secondLevelMenu:
+                shouldOpen = false
+                var j : Int = i
+                while  nextSection.componentType! == HomeComponent.kComponentType.firstLevelMenu || nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
+                    deleteIndexPaths += newIndexPath
+                    homeSectionList.removeAtIndex(j)
+                    print(nextSection.sectionName!)
+                    nextSection = homeSectionList[j]
+                    i++
+                    newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                }
+                break
+            default:
+                break
+            }
         case .firstLevelMenu:
             var i = indexPath.row + 1
-            for subSection in homeSection.subSection! {
-                homeSectionList.insert(subSection, atIndex: i)
-                insertedIndexPaths += NSIndexPath(forRow: i, inSection: 0)
-                i++
+            var newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+            // Get next section
+            var nextSection = homeSectionList[i]
+            
+            switch nextSection.componentType! {
+            case .firstLevelMenu:
+                shouldOpen = true
+                if homeSection.subSection {
+                    for subSection in homeSection.subSection! {
+                        homeSectionList.insert(subSection, atIndex: i)
+                        insertedIndexPaths += newIndexPath
+                        i++
+                        newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                    }
+                }
+                break
+            case .secondLevelMenu:
+                shouldOpen = false
+                var j : Int = i
+                while nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
+                    deleteIndexPaths += newIndexPath
+                    homeSectionList.removeAtIndex(j)
+                    print(nextSection.sectionName!)
+                    nextSection = homeSectionList[j]
+                    i++
+                    newIndexPath = NSIndexPath(forRow: i, inSection: 0)
+                }
+                break
+            default:
+                break
             }
-            break;
         default:
-            break;
+            break
         }
-        //self.homeTable!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         
-        self.homeTable!.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        //self.homeTable!.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        if shouldOpen {
+            self.homeTable!.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        } else {
+            self.homeTable!.deleteRowsAtIndexPaths(deleteIndexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+        
     }
     
     func initSectionList() {
         var soldSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "SOLDES")
+        var collectionSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "COLLECTION")
+        var lookBookSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "LOOKBOOK")
+        var pictureSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "PICTURE")
+        var dailySection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "DAILY")
+        var campaignSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.homeSection, sectionName: "CAMPAIGN")
         
         //Sub Section
         var femmeSection : HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: "FEMME")
@@ -210,11 +294,35 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
         }
         hommeSection.subSection = hommeComponentList
         
+        var soldSectionList = HomeComponent[]()
+        soldSectionList.append(femmeSection)
+        soldSectionList.append(trfSection)
+        soldSectionList.append(hommeSection)
+        soldSectionList.append(enfantsSection)
+        soldSection.subSection = soldSectionList
+        
         homeSectionList.append(soldSection)
-        homeSectionList.append(femmeSection)
-        homeSectionList.append(trfSection)
-        homeSectionList.append(hommeSection)
-        homeSectionList.append(enfantsSection)
+        homeSectionList.append(collectionSection)
+        homeSectionList.append(lookBookSection)
+        homeSectionList.append(pictureSection)
+        homeSectionList.append(dailySection)
+        homeSectionList.append(campaignSection)
+        
+        var collectionFirstMenuList : String[] = ["Femme", "TRF", "Homme", "Fille","Garçon", "Bébé filette", "Bébé garçon", "Mini"]
+        var collectionComponentList : HomeComponent[] = HomeComponent[]()
+        for menuTitle in collectionFirstMenuList {
+            var aCollectionComponent: HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: menuTitle)
+            collectionComponentList.append(aCollectionComponent)
+        }
+        collectionSection.subSection = collectionComponentList
+        
+        var lookBookFirstMenu : String[] = ["Play", "Woman", "TRF", "Man", "Kids", "Bébé", "Mini"]
+        var lookComponentList : HomeComponent[] = HomeComponent[]()
+        for menuTitle in lookBookFirstMenu {
+            var aLookComponent: HomeComponent = HomeComponent(componentType: HomeComponent.kComponentType.firstLevelMenu, sectionName: menuTitle)
+            lookComponentList.append(aLookComponent)
+        }
+        lookBookSection.subSection = lookComponentList
         
     }
 }
