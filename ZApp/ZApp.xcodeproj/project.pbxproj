@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E3DA766195C911B0061D401 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E3DA765195C911B0061D401 /* sampleData.json */; };
 		3EB3EBDD19600EA10026720B /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3EBDC19600EA10026720B /* HomeComponent.swift */; };
+		3EBEDD5119649C0D00BC5B90 /* ProductGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */; };
+		3EBEDD5419649C5400BC5B90 /* ProductGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */; };
 		3ED44912195A921E002E4C0B /* ZProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED44911195A921E002E4C0B /* ZProduct.swift */; };
 		4C09D31E1962DF560047AB32 /* FirstLevelMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */; };
 		4C09D3201962E7750047AB32 /* SecondLevelMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09D31F1962E7750047AB32 /* SecondLevelMenuCell.swift */; };
@@ -131,6 +133,8 @@
 /* Begin PBXFileReference section */
 		3E3DA765195C911B0061D401 /* sampleData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleData.json; sourceTree = SOURCE_ROOT; };
 		3EB3EBDC19600EA10026720B /* HomeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
+		3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductGridCell.swift; sourceTree = "<group>"; };
+		3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductGridCell.xib; path = xib/ProductGridCell.xib; sourceTree = SOURCE_ROOT; };
 		3ED4490F195A83D7002E4C0B /* ZAConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZAConstants.h; sourceTree = "<group>"; };
 		3ED44911195A921E002E4C0B /* ZProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZProduct.swift; sourceTree = "<group>"; };
 		4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstLevelMenuCell.swift; sourceTree = "<group>"; };
@@ -245,6 +249,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EBEDD5219649C1D00BC5B90 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		3ED44910195A91F3002E4C0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +282,7 @@
 		4C2EC4371959A472002A7CF7 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				3EBEDD5219649C1D00BC5B90 /* xib */,
 				3E3DA765195C911B0061D401 /* sampleData.json */,
 			);
 			path = res;
@@ -385,6 +398,7 @@
 				4C5023D4195C6B2800D3EDBB /* SplitMenuCell.swift */,
 				4C09D31D1962DF560047AB32 /* FirstLevelMenuCell.swift */,
 				4C09D31F1962E7750047AB32 /* SecondLevelMenuCell.swift */,
+				3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -651,6 +665,7 @@
 				4CC713871950727400E42E34 /* Main.storyboard in Resources */,
 				3E3DA766195C911B0061D401 /* sampleData.json in Resources */,
 				4CC713891950727400E42E34 /* Images.xcassets in Resources */,
+				3EBEDD5419649C5400BC5B90 /* ProductGridCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +733,7 @@
 				4C5023C4195C695F00D3EDBB /* SDWebImageCompat.m in Sources */,
 				4C5023CA195C695F00D3EDBB /* UIButton+WebCache.m in Sources */,
 				4C5023CE195C695F00D3EDBB /* UIImageView+HighlightedWebCache.m in Sources */,
+				3EBEDD5119649C0D00BC5B90 /* ProductGridCell.swift in Sources */,
 				4C5023CB195C695F00D3EDBB /* UIImage+GIF.m in Sources */,
 				4C5023C3195C695F00D3EDBB /* SDImageCache.m in Sources */,
 			);

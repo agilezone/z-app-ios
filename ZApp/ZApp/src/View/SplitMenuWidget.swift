@@ -45,9 +45,7 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = SplitMenuCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellId)
         }
-        
-        println(tableDataSourceList![indexPath.row])
-        
+            
         cell!.labelString = tableDataSourceList![indexPath.row]
         cell!.update()
         
@@ -55,9 +53,6 @@ class SplitMenuWidget: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
-        println("selected")
-        
-        
         self.update()
     }
     

@@ -103,7 +103,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        println("homeSectionCount: \(homeSectionList.count)")
         return homeSectionList.count
     }
     
@@ -190,15 +189,12 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
                 shouldOpen = false
                 var j : Int = i
                 while nextSection.componentType! == HomeComponent.kComponentType.firstLevelMenu || nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
-                    print(newIndexPath)
                     deleteIndexPaths += newIndexPath
                     homeSectionList.removeAtIndex(j)
-                    print(nextSection.sectionName!)
                     nextSection = homeSectionList[j]
                     i++
                     newIndexPath = NSIndexPath(forRow: i, inSection: 0)
                 }
-                print(deleteIndexPaths)
                 break
             case .secondLevelMenu:
                 shouldOpen = false
@@ -206,7 +202,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
                 while  nextSection.componentType! == HomeComponent.kComponentType.firstLevelMenu || nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
                     deleteIndexPaths += newIndexPath
                     homeSectionList.removeAtIndex(j)
-                    print(nextSection.sectionName!)
                     nextSection = homeSectionList[j]
                     i++
                     newIndexPath = NSIndexPath(forRow: i, inSection: 0)
@@ -239,7 +234,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
                 while nextSection.componentType! == HomeComponent.kComponentType.secondLevelMenu{
                     deleteIndexPaths += newIndexPath
                     homeSectionList.removeAtIndex(j)
-                    print(nextSection.sectionName!)
                     nextSection = homeSectionList[j]
                     i++
                     newIndexPath = NSIndexPath(forRow: i, inSection: 0)
