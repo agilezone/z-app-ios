@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E3DA766195C911B0061D401 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E3DA765195C911B0061D401 /* sampleData.json */; };
+		3E623E751965DAFB00B6A465 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E623E741965DAFB00B6A465 /* ProductViewController.swift */; };
 		3EB3EBDD19600EA10026720B /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3EBDC19600EA10026720B /* HomeComponent.swift */; };
 		3EBEDD5119649C0D00BC5B90 /* ProductGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */; };
 		3EBEDD5419649C5400BC5B90 /* ProductGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */; };
@@ -132,6 +133,7 @@
 
 /* Begin PBXFileReference section */
 		3E3DA765195C911B0061D401 /* sampleData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleData.json; sourceTree = SOURCE_ROOT; };
+		3E623E741965DAFB00B6A465 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		3EB3EBDC19600EA10026720B /* HomeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeComponent.swift; sourceTree = "<group>"; };
 		3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductGridCell.swift; sourceTree = "<group>"; };
 		3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductGridCell.xib; path = xib/ProductGridCell.xib; sourceTree = SOURCE_ROOT; };
@@ -312,6 +314,7 @@
 				4C34FEF9195C68930016F212 /* UserViewController.swift */,
 				4C2EC43B1959A569002A7CF7 /* ViewController.swift */,
 				4CC34A0A195AECA30019977D /* HomeViewController.swift */,
+				3E623E741965DAFB00B6A465 /* ProductViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E623E751965DAFB00B6A465 /* ProductViewController.swift in Sources */,
 				4C5023C6195C695F00D3EDBB /* SDWebImageDownloader.m in Sources */,
 				3EB3EBDD19600EA10026720B /* HomeComponent.swift in Sources */,
 				4C2EC4591959A616002A7CF7 /* AFURLRequestSerialization.m in Sources */,

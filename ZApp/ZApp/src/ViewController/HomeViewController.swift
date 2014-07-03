@@ -242,6 +242,9 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
             default:
                 break
             }
+        case .secondLevelMenu:
+            self .performSegueWithIdentifier("goToProductPage", sender: self)
+            break
         default:
             break
         }
