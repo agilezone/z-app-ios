@@ -12,8 +12,6 @@ class ProductViewController: UITableViewController {
 
     var productArray : ZProduct[]?
     
-    
-    
     init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
