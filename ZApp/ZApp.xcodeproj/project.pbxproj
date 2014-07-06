@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E3DA766195C911B0061D401 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E3DA765195C911B0061D401 /* sampleData.json */; };
 		3E623E751965DAFB00B6A465 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E623E741965DAFB00B6A465 /* ProductViewController.swift */; };
-		3EA678F919687C9900E71F7C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA678F819687C9900E71F7C /* JSONKit.m */; };
+		3EA678F919687C9900E71F7C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA678F819687C9900E71F7C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3EB3EBDD19600EA10026720B /* HomeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3EBDC19600EA10026720B /* HomeComponent.swift */; };
 		3EBEDD5119649C0D00BC5B90 /* ProductGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5019649C0D00BC5B90 /* ProductGridCell.swift */; };
 		3EBEDD5419649C5400BC5B90 /* ProductGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EBEDD5319649C5400BC5B90 /* ProductGridCell.xib */; };

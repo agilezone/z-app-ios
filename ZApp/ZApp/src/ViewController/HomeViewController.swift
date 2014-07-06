@@ -16,6 +16,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
     var sectionList : HomeComponent[]?
     var splitMenu : SplitMenuWidget?
     var homeSectionList : HomeComponent[] = HomeComponent[]()
+    var proList = ZProduct[]()
     
     override func viewDidLoad()  {
         //let atHome : Bool = true
@@ -55,8 +56,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
         let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
         
         let productsList : NSArray = jsonDict.objectForKey("products") as NSArray
-        
-        var proList = ZProduct[]()
         
         for product:AnyObject in productsList {
             var zProduct = ZProduct();
@@ -243,7 +242,7 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
                 break
             }
         case .secondLevelMenu:
-            self .performSegueWithIdentifier("goToProductPage", sender: self)
+            self.performSegueWithIdentifier("goToProductPage", sender: self)
             break
         default:
             break
@@ -321,6 +320,17 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
             lookComponentList.append(aLookComponent)
         }
         lookBookSection.subSection = lookComponentList
-        
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        var segueString : String = segue.identifier
+        print(segueString)
+        if segueString == "goToProductPage" {
+            var productVC : ProductViewController = segue.destinationViewController as ProductViewController
+            productVC.productArray = proList
+            
+        }
+    }
+    
+    
 }
