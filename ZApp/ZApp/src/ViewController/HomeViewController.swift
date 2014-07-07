@@ -70,27 +70,6 @@ class HomeViewController : UIViewController, WidgetIsClickedProtocol, UITableVie
             
         }
         var i:CGFloat = 0
-        
-        /*
-        //Init Menu
-        //splitMenu = SplitMenuWidget(frame: CGRectMake(0, widgetHeight, 320, CGFloat(productsStringList.count) * 40))
-        splitMenu = SplitMenuWidget(frame: CGRectZero)
-        splitMenu!.compile()
-        splitMenu!.tableDataSourceList = productsStringList
-        splitMenu!.update()
-        //self.scrollView.addSubview(splitMenu)
-        //Initailly hidden
-        splitMenu!.hidden = true
-        
-        for aString in sectionList {
-            var aElement : HomeBasicWidget = HomeBasicWidget(frame: CGRectMake(0, i * widgetHeight, widegtWidth, widgetHeight))
-            aElement.clickedDelegate = self
-            homeWidgetList.append(aElement)
-            //scrollView.addSubview(aElement)
-            i++;
-        }
-        //scrollView.contentSize = CGSizeMake(widegtWidth, widgetHeight * i)
-        */
     }
     
     override func didReceiveMemoryWarning() {
